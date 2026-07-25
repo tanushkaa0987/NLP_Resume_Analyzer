@@ -1,0 +1,7 @@
+Flask
+gunicorn
+pdfplumber
+PyPDF2
+python-docx
+scikit-learn
+spacy
