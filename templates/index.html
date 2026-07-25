@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+    <a href="#" class="brand">AI Resume Analyzer</a>
+
+    <nav>
+        <a href="#upload">Analyze</a>
+        <a href="#results">Results</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<main class="site-shell">
+
+<section class="hero">
+
+<div class="hero-copy">
+
+<p class="eyebrow">
+Resume Screening
+</p>
+
+<h1>
+Improve your resume before applying.
+</h1>
+
+<p class="hero-text">
+Upload your resume and receive an ATS-style analysis including keyword matching,
+resume structure, readability, impact score and personalized suggestions.
+</p>
+
+<div class="hero-stats">
+
+<div>
+<span>ATS</span>
+<small>Keyword Analysis</small>
+</div>
+
+<div>
+<span>PDF</span>
+<small>DOCX Support</small>
+</div>
+
+<div>
+<span>AI</span>
+<small>Resume Insights</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="upload-panel" id="upload">
+
+<p class="panel-kicker">
+Upload Resume
+</p>
+
+<form id="uploadForm">
+
+<label class="drop-zone" id="dropZone">
+
+<div>
+
+<div class="upload-icon">
+↑
+</div>
+
+<strong>
+Drag & Drop Resume
+</strong>
+
+<small>
+or click to browse
+</small>
+
+<em id="fileName">
+No file selected
+</em>
+
+</div>
+
+<input
+type="file"
+id="resumeInput"
+accept=".pdf,.docx">
+
+</label>
+
+<button
+type="submit"
+id="analyzeButton">
+Analyze Resume
+</button>
+
+<p
+class="status-message"
+id="statusMessage">
+</p>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="results hidden" id="results">
+
+<div class="score-panel">
+
+<div class="score-ring">
+<div>
+<span id="overallScore">0</span>
+<br>
+<small>Overall</small>
+</div>
+</div>
+
+<div>
+
+<h2 id="targetRole">
+Target Role
+</h2>
+
+<p id="summaryText">
+</p>
+
+</div>
+
+</div>
+
+<div class="metrics-grid">
+
+<div class="metric">
+
+<span id="keywordScore">
+0%
+</span>
+
+<p>Keyword Match</p>
+
+<div>
+<i id="keywordBar"></i>
+</div>
+
+</div>
+
+<div class="metric">
+
+<span id="clarityScore">
+0%
+</span>
+
+<p>Clarity</p>
+
+<div>
+<i id="clarityBar"></i>
+</div>
+
+</div>
+
+<div class="metric">
+
+<span id="impactScore">
+0%
+</span>
+
+<p>Impact</p>
+
+<div>
+<i id="impactBar"></i>
+</div>
+
+</div>
+
+<div class="metric">
+
+<span id="structureScore">
+0%
+</span>
+
+<p>Structure</p>
+
+<div>
+<i id="structureBar"></i>
+</div>
+
+</div>
+
+</div>
+
+<div class="content-grid">
+
+<div class="panel">
+
+<div class="panel-header">
+<h3>Recommendations</h3>
+</div>
+
+<ul id="recommendations"></ul>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-header">
+<h3>Matched Keywords</h3>
+</div>
+
+<div
+class="chips success"
+id="matchedKeywords">
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-header">
+<h3>Missing Keywords</h3>
+</div>
+
+<div
+class="chips muted"
+id="missingKeywords">
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-header">
+<h3>Detected Skills</h3>
+</div>
+
+<div
+class="chips"
+id="detectedSkills">
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-header">
+<h3>Resume Details</h3>
+</div>
+
+<dl class="details">
+
+<div>
+<dt>Word Count</dt>
+<dd id="wordCount"></dd>
+</div>
+
+<div>
+<dt>Sections</dt>
+<dd id="foundSections"></dd>
+</div>
+
+<div>
+<dt>Action Verbs</dt>
+<dd id="actionVerbs"></dd>
+</div>
+
+<div>
+<dt>Impact Numbers</dt>
+<dd id="impactNumbers"></dd>
+</div>
+
+</dl>
+
+</div>
+
+<div class="panel preview-panel">
+
+<div class="panel-header">
+<h3>Resume Preview</h3>
+</div>
+
+<p id="textPreview"></p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="info-section" id="about">
+
+<h2>
+How it Works
+</h2>
+
+<div class="steps-grid">
+
+<article>
+<span>STEP 1</span>
+<h3>Upload</h3>
+<p>
+Upload your PDF or DOCX resume.
+</p>
+</article>
+
+<article>
+<span>STEP 2</span>
+<h3>Analyze</h3>
+<p>
+The application extracts resume text and evaluates important sections.
+</p>
+</article>
+
+<article>
+<span>STEP 3</span>
+<h3>Score</h3>
+<p>
+Receive ATS-style scores for keywords, clarity, impact and structure.
+</p>
+</article>
+
+<article>
+<span>STEP 4</span>
+<h3>Improve</h3>
+<p>
+Follow personalized recommendations to strengthen your resume.
+</p>
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+<p>
+© 2026 AI Resume Analyzer
+</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
+
+
