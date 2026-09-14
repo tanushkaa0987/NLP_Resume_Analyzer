@@ -50,7 +50,7 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 ![Resume Upload](screenshots/home.png)
 
 ### Resume Analysis
-![Resume Analysis](screenshots/results.png)
+![Resume Analysis](screenshots/result.png)
 
 ## 🔍 How It Works
 
