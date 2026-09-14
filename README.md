@@ -1,4 +1,4 @@
-#  Resume Analyzer
+#  NLP Resume Analyzer
 
 A web-based resume analyzer that allows users to upload **PDF or DOCX resumes** and receive a score with actionable feedback on resume quality.
 
