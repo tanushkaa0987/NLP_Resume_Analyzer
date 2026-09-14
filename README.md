@@ -44,6 +44,14 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 * PyPDF2
 * python-docx
 
+## 📸 Screenshots
+
+### Resume Upload
+![Resume Upload](screenshots/home.png)
+
+### Resume Analysis
+![Resume Analysis](screenshots/results.png)
+
 ## 🔍 How It Works
 
 1. User uploads a PDF or DOCX resume.
@@ -56,7 +64,7 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 ## 📁 Project Structure
 
 ```text
-AI-Resume-Analyzer/
+NLP_Resume_Analyzer/
 │
 ├── app.py
 ├── requirements.txt
@@ -75,8 +83,8 @@ AI-Resume-Analyzer/
 ## 💻 Run Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-resume-analyzer.git
-cd ai-resume-analyzer
+git clone https://github.com/tanushkaa0987/NLP_Resume_Analyzer.git
+cd NLP_Resume_Analyzer
 
 python -m venv .venv
 .venv\Scripts\activate
