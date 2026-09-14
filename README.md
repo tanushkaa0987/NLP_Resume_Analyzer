@@ -4,7 +4,7 @@ A web-based resume analyzer that allows users to upload **PDF or DOCX resumes** 
 
 The project uses a **Flask backend**, document parsing, NLP techniques, and rule-based scoring to analyze different aspects of a resume.
 
-## 🚀 Features
+##  Features
 
 * Upload resumes in **PDF or DOCX** format
 * Extract text from uploaded resumes
@@ -17,7 +17,7 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 * NLP analysis using **spaCy** and **scikit-learn**
 * Fallback analysis when NLP dependencies are unavailable
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Frontend**
 
@@ -44,7 +44,7 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 * PyPDF2
 * python-docx
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Resume Upload
 ![Resume Upload](screenshots/home.png)
@@ -52,7 +52,7 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 ### Resume Analysis
 ![Resume Analysis](screenshots/result.png)
 
-## 🔍 How It Works
+##  How It Works
 
 1. User uploads a PDF or DOCX resume.
 2. Flask receives the file through the `/api/analyze` endpoint.
@@ -61,7 +61,7 @@ The project uses a **Flask backend**, document parsing, NLP techniques, and rule
 5. The results are returned to the frontend as JSON.
 6. The website displays the resume score and improvement suggestions.
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 NLP_Resume_Analyzer/
@@ -80,7 +80,7 @@ NLP_Resume_Analyzer/
         └── app.js
 ```
 
-## 💻 Run Locally
+##  Run Locally
 
 ```bash
 git clone https://github.com/tanushkaa0987/NLP_Resume_Analyzer.git
@@ -101,7 +101,7 @@ Open:
 http://127.0.0.1:5000
 ```
 
-## ☁️ Deployment
+##  Deployment
 
 The Flask application can be deployed using platforms such as **Render, Railway, Fly.io, or PythonAnywhere**.
 
@@ -119,7 +119,7 @@ pip install -r requirements.txt && python -m spacy download en_core_web_sm
 gunicorn app:app
 ```
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 * Integrate a real LLM for deeper resume feedback
 * Add job-description matching
@@ -127,7 +127,7 @@ gunicorn app:app
 * Add personalized improvement suggestions
 * Support additional resume formats
 
-## 👩‍💻 What This Project Demonstrates
+##  What This Project Demonstrates
 
 * Building a full-stack web application
 * Designing and consuming REST APIs
