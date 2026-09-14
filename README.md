@@ -1,93 +1,130 @@
-# AI Resume Analyzer Website
+# AI Resume Analyzer
 
-A modern website with a Flask backend that accepts PDF/DOCX resumes, extracts text, analyzes resume quality with NLP/scoring logic, and returns recommendations to the frontend.
+A web-based resume analyzer that allows users to upload **PDF or DOCX resumes** and receive a score with actionable feedback on resume quality.
 
-## Features
+The project uses a **Flask backend**, document parsing, NLP techniques, and rule-based scoring to analyze different aspects of a resume.
 
-- Website frontend built with HTML, CSS, and JavaScript
-- Flask backend with `/api/analyze`
-- PDF extraction with `pdfplumber` and `PyPDF2`
-- DOCX extraction with `python-docx`
-- Resume scoring for keywords, clarity, impact, and structure
-- NLP-friendly analysis using `spaCy` and `scikit-learn`
-- Ready for deployment with Gunicorn
+## 🚀 Features
 
-## Run Locally
+* Upload resumes in **PDF or DOCX** format
+* Extract text from uploaded resumes
+* Analyze **keywords, clarity, impact, and structure**
+* Detect important resume sections
+* Generate an overall **resume score**
+* Provide actionable recommendations for improvement
+* Responsive frontend built with **HTML, CSS, and JavaScript**
+* REST API built with **Flask**
+* NLP analysis using **spaCy** and **scikit-learn**
+* Fallback analysis when NLP dependencies are unavailable
 
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
-python app.py
-```
+## 🛠️ Tech Stack
 
-Open the website at `http://127.0.0.1:5000` in your browser.
+**Frontend**
 
-If your virtual environment has a `bin` folder instead of `Scripts`, use `.\.venv\bin\Activate.ps1` and `.\.venv\bin\python.exe app.py`.
+* HTML
+* CSS
+* JavaScript
 
-If you skip the spaCy model download, the site still runs. If spaCy or scikit-learn are not installed, the backend uses fallback keyword analysis so the website can still start.
+**Backend**
 
-## How The Backend Works
+* Python
+* Flask
 
-1. The website sends the uploaded resume to `POST /api/analyze`.
-2. Flask validates that the file is PDF or DOCX.
-3. PDF text is extracted with `pdfplumber`, then `PyPDF2` as a fallback.
-4. DOCX text is extracted with `python-docx`.
-5. The analyzer uses keyword matching, TF-IDF, spaCy, readability checks, impact metrics, and section detection.
-6. Flask returns JSON results to the frontend.
+**NLP & Analysis**
 
-## Adding A Real AI Model
+* spaCy
+* scikit-learn
+* TF-IDF
+* Keyword analysis
+* Readability and impact metrics
 
-The current analyzer is local and free to run. To connect a hosted AI model, add your model call inside `analyze_resume` in `app.py` or create a new helper function such as `run_llm_analysis(text)`.
+**Document Processing**
 
-Keep API keys in environment variables, never in GitHub:
+* pdfplumber
+* PyPDF2
+* python-docx
 
-```bash
-set OPENAI_API_KEY=your_key_here
-```
+## 🔍 How It Works
 
-## Push To GitHub
+1. User uploads a PDF or DOCX resume.
+2. Flask receives the file through the `/api/analyze` endpoint.
+3. The backend extracts the resume text.
+4. The analyzer evaluates keywords, sections, readability, clarity, and impact.
+5. The results are returned to the frontend as JSON.
+6. The website displays the resume score and improvement suggestions.
 
-```bash
-git init
-git add .
-git commit -m "Build AI resume analyzer"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/ai-resume-analyzer.git
-git push -u origin main
-```
-
-Create the empty repository on GitHub before running the `remote add` command.
-
-## Deploy From GitHub
-
-GitHub Pages only hosts static sites, so it cannot run this Flask backend. Use a Python web host such as Render, Railway, Fly.io, or PythonAnywhere.
-
-### Render Deployment
-
-1. Push this project to GitHub.
-2. Go to Render and choose **New Web Service**.
-3. Connect your GitHub repository.
-4. Use these settings:
-   - Build command: `pip install -r requirements.txt && python -m spacy download en_core_web_sm`
-   - Start command: `gunicorn app:app`
-5. Deploy.
-
-Render will provide a public URL for the full frontend and backend.
-
-## Project Structure
+## 📁 Project Structure
 
 ```text
-.
+AI-Resume-Analyzer/
+│
 ├── app.py
 ├── requirements.txt
 ├── Procfile
+│
 ├── templates/
 │   └── index.html
+│
 └── static/
     ├── css/
     │   └── styles.css
     └── js/
         └── app.js
 ```
+
+## 💻 Run Locally
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-resume-analyzer.git
+cd ai-resume-analyzer
+
+python -m venv .venv
+.venv\Scripts\activate
+
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+
+python app.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+## ☁️ Deployment
+
+The Flask application can be deployed using platforms such as **Render, Railway, Fly.io, or PythonAnywhere**.
+
+For Render:
+
+**Build Command**
+
+```bash
+pip install -r requirements.txt && python -m spacy download en_core_web_sm
+```
+
+**Start Command**
+
+```bash
+gunicorn app:app
+```
+
+## 🔮 Future Improvements
+
+* Integrate a real LLM for deeper resume feedback
+* Add job-description matching
+* Improve ATS compatibility analysis
+* Add personalized improvement suggestions
+* Support additional resume formats
+
+## 👩‍💻 What This Project Demonstrates
+
+* Building a full-stack web application
+* Designing and consuming REST APIs
+* PDF/DOCX document processing
+* Applying NLP and text-analysis techniques
+* Implementing resume scoring logic
+* Connecting a JavaScript frontend with a Python backend
+* Preparing a Flask application for deployment
